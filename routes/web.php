@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Requests;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers;
 use Illuminate\Foundation\Application;

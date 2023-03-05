@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Http\Request;
 use App\Models\Category;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Http\Request\CategoryFormRequest;
+use App\Http\Requests\CategoryFormRequest;
+
 
 class CategoryController extends Controller
 {

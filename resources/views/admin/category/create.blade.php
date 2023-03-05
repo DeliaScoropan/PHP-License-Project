@@ -20,7 +20,7 @@
                     <div class="col-md-6 nb-3">
                         <label>Name</label>
                             <input type="text" name="name" class="form-control"/>
-                        
+                        @error('name') <small class="text-danger">{{$message}}</small>@enderror
                     </div>
                     <div class="col-md-6 nb-3">
                         <label>Slug</label>
