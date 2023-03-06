@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3>Edit
+                        <h3>Edit Category
                             <a href="{{ url('admin/category') }}" class="btn btn-primary btn-sm text-white float-end">Back</a>
                         </h3>
                     </div>
@@ -30,7 +30,7 @@
                     </div>
                     <div class="col-md-12 nb-3">
                         <label>Description</label>
-                            <textarea name="description" value="{{ $category->description }}"  class="form-control" rows="3"></textarea>
+                            <textarea name="description"   class="form-control" rows="3">{{ $category->description }}</textarea>
                             @error('description') <small class="text-danger">{{$message}}</small>@enderror
                     </div>
                     <div class="col-md-6 nb-3">

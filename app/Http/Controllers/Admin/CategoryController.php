@@ -34,8 +34,9 @@ class CategoryController extends Controller
             $filename = time().'.'.$ext;
 
             $file->move('uploads/category/',$filename);
+            $category->image = $filename;
         }
-        $category->image = $filename;
+        
 
         $category->meta_title = $validateData['meta_title'];
         $category->meta_keyword = $validateData['meta_keyword'];
@@ -72,8 +73,9 @@ class CategoryController extends Controller
             $filename = time().'.'.$ext;
 
             $file->move('uploads/category/',$filename);
+            $category->image = $filename;
         }
-        $category->image = $filename;
+       
 
         $category->meta_title = $validateData['meta_title'];
         $category->meta_keyword = $validateData['meta_keyword'];
