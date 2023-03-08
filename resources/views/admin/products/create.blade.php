@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -10,8 +11,17 @@
                             <a href="{{ url('admin/products') }}" class="btn btn-primary btn-sm text-white float-end">Back</a>
                         </h3>
                     </div>
-                </div>
+               
                 <div class="card-body">
+
+                  @if ($errors->any())
+                  <div class="alert alert-warning">
+                    @foreach ($errors->all() as $error)
+                    <div >{{$error}}</div>
+                    @endforeach
+                </div>
+                @endif
+
                 <form action="{{ url('admin/products')}}" method="POST" enctype="multipart/form-data">
                 @csrf
               
@@ -35,7 +45,7 @@
   
 </ul>
 <div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">...</div>
+  <div class="tab-pane fade border p-3 show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
 <div class="mb-3">
     <label>Category</label>
     <select name="category_id" class="form-control">
@@ -60,11 +70,9 @@
     <label>{Description </label>
         <textarea  name="description" class="form-control" rows="4"></textarea>
 </div>
-
 </div>
 
-  <div class="tab-pane fade" id="seotag-tab-pane" role="tabpanel" aria-labelledby="seotag-tab" tabindex="0">
-
+  <div class="tab-pane fade border p-3" id="seotag-tab-pane" role="tabpanel" aria-labelledby="seotag-tab" tabindex="0">
   <div class="mb-3">
     <label>{Meta Title</label>
         <input type="text" name="meta_title" class="form-control" />
@@ -79,10 +87,8 @@
     <label>{Meta Keyword</label>
         <textarea  name="meta_keyword" class="form-control" rows="4"></textarea>
 </div>
-
   </div>
-
-  <div class="tab-pane fade" id="details-tab-pane" role="tabpanel" aria-labelledby="details-tab" tabindex="0">
+  <div class="tab-pane fade border p-3" id="details-tab-pane" role="tabpanel" aria-labelledby="details-tab" tabindex="0">
   <div class="row">
     <div class="col-md-4">
     <div class="mb-3">
@@ -101,15 +107,15 @@
     <div class="col-md-4">
     <div class="mb-3">
     <label>Status</label>
-        <input type="checkbox" name="status" style="width: 50px; height: 50px;" />
+        <input type="checkbox" name="status" style="width: 40px; height: 40px;" />
 </div>
     </div>
   </div>
     </div>
-  <div class="tab-pane fade" id="image-tab-pane" role="tabpanel" aria-labelledby="image-tab" tabindex="0">
+  <div class="tab-pane fade border p-3" id="image-tab-pane" role="tabpanel" aria-labelledby="image-tab" tabindex="0">
 <div class="mb-3">
     <label>Upload Product Images</label>
-    <input type="file" name="image" multiple class="form-control"/>
+    <input type="file" name="image[]" multiple class="form-control"/>
 </div>
   </div>
 </div>
