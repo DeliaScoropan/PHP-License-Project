@@ -71,6 +71,10 @@ Route::controller(App\Http\Controllers\Admin\ColorController::class)->group(func
     Route::get('/colors', 'index');
     Route::get('/colors/create', 'create');
     Route::post('/colors/create', 'store');
+    Route::get('/colors/{color}/edit', 'edit');
+    Route::put('/colors/{color_id}', 'update');
+    Route::get('/colors/{color_id}/delete', 'destroy');
+    
 });
 
 });

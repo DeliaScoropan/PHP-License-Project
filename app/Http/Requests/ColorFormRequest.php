@@ -24,7 +24,7 @@ class ColorFormRequest extends FormRequest
         return [
             'name' => ['required', 'string'],
             'code' => ['required', 'string'],
-            'status' => ['nullable']
+            'status' => 'nullable'
         ];
     }
 }
