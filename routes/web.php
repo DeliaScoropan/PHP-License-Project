@@ -66,13 +66,11 @@ Route::controller(App\Http\Controllers\Admin\ProductController::class)->group(fu
     Route::get('product-image/{product_image_id}/delete', 'destroyImage');
 });
 
-  
+
+Route::controller(App\Http\Controllers\Admin\ColorController::class)->group(function () {
+    Route::get('/colors', 'index');
+    Route::get('/colors/create', 'create');
+    Route::post('/colors/create', 'store');
 });
 
-/*Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');*/
+});

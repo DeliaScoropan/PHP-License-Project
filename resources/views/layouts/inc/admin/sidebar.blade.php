@@ -1,8 +1,8 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">
-              <i class="mdi mdi-home menu-icon"></i>
+            <a class="nav-link" href="{{ url('admin/dashboard') }}">
+              <i class="mdi mdi-speedometer menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
@@ -20,24 +20,36 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse"  href="#products" aria-expands="false" aria-controls="products">
-              <i class="mdi mdi-view-headline menu-icon"></i>
+            <a class="nav-link" data-bs-toggle="collapse"  href="#products">
+              <i class="mdi mdi-plus-circle menu-icon"></i>
               <span class="menu-title">Products</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="products">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{ url('admin/products/create') }}">Add Product</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/products/create') }}">View Products</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ url('admin/products/create') }}">View Product</a></li>
               </ul>
             </div>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="{{ url('admin/colors') }}">
+              <i class="mdi mdi-view-headline menu-icon"></i>
+                <span class="menu-title">Colors</span>
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#users" aria-expands="false" aria-controls="users">
-              <i class="mdi mdi-chart-pie menu-icon"></i>
+              <i class="mdi mdi-account-multiple-plus menu-icon"></i>
               <span class="menu-title">Users</span>
               <i class="menu-arrow"></i>
             </a>
+          <div class="collapse" id="users">
+            <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="#">Add User</a></li>
+            <li class="nav-item"> <a class="nav-link" href="#">View Users</a></li>
+            </ul>
+          </div>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="pages/tables/basic-table.html">
