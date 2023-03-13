@@ -42,6 +42,10 @@
     <button class="nav-link" id="image-tab" data-bs-toggle="tab" data-bs-target="#image-tab-pane" type="button" role="tab" aria-controls="image-tab-pane" aria-selected="false">
         Product Image</button>
   </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="color-tab" data-bs-toggle="tab" data-bs-target="#color-tab-pane" type="button" role="tab" aria-controls="image-tab-pane" aria-selected="false">
+        Product Color</button>
+  </li>
   
 </ul>
 <div class="tab-content" id="myTabContent">
@@ -118,6 +122,33 @@
     <input type="file" name="image[]" multiple class="form-control"/>
 </div>
   </div>
+
+  <div class="tab-pane fade border p-3" id="color-tab-pane" role="tabpanel" aria-labelledby="image-tab" tabindex="0">
+<div class="mb-3">
+
+    <label>Select Color</label>
+    <hr/>
+    <div class="row">
+      @forelse ($colors as $coloritem)
+      <div class="col-md-3">
+        <div class="p-2 border mb-3">
+       Color:  <input type="checkbox" name="colors[{{ $coloritem->id }}]" value="
+        {{ $coloritem->id }}"/>{{ $coloritem->name }}
+        </br>
+       Quantity: <input type="number" name="colorquantity[{{ $coloritem->id }}]" style="width:70px; border:1px solid"/>
+       </div>
+      </div>
+      @empty
+      <div class="col-md-12">
+        <h1>No colors found</h1>
+      </div>
+      @endforelse
+      
+    </div>
+    
+</div>
+  </div>
+
 </div>
 <div class="py-2 float-end">
     <button type="submit" class="btn btn-primary">Submit</button>

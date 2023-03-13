@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Color;
 use App\Models\ProductImage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
@@ -22,7 +23,8 @@ class ProductController extends Controller
     public function create() 
     {
         $categories = Category::all();
-        return view('admin.products.create', compact('categories'));
+        $colors = Color::where('status', '0')->get();
+        return view('admin.products.create', compact('categories', 'colors'));
     }
 
     public function store(ProductFormRequest $request) 
@@ -32,6 +34,7 @@ class ProductController extends Controller
         $category = Category::findOrFail($validatedData['category_id']);
 
        $product = $category->products()->create([
+
             'category_id' =>  $validatedData['category_id'],
             'name' =>  $validatedData['name'],
             'slug' =>  Str::slug($validatedData['slug']),
@@ -64,7 +67,15 @@ class ProductController extends Controller
             }
         }
 
-        
+        if($request->colors) {
+            foreach($request->colors as $key => $color){
+                $product->productColors()->create([
+                    'product_id' => $product->id,
+                    'color_id' => $color,
+                    'quantity' => $request->colorquantity[$key] ?? 0
+                ]);
+            }
+        }
 
        return redirect('/admin/products')->with('messsage', 'Product Added Succsesfully');
 
